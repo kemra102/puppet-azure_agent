@@ -1,4 +1,4 @@
-# azure_agent
+# azure_agent [![Build Status](https://travis-ci.org/kemra102/puppet-azure_agent.svg)](https://travis-ci.org/kemra102/puppet-azure_agent)
 
 #### Table of Contents
 

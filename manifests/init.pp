@@ -154,10 +154,10 @@ class azure_agent (
     group   => 'root',
     mode    => '0644',
     content => template('azure_agent/waagent.conf.erb'),
-    notify  => Service['walinuxagent'],
+    notify  => Service['waagent'],
   }
 
-  service { 'walinuxagent':
+  service { 'waagent':
     ensure     => 'running',
     enable     => true,
     hasstatus  => true,

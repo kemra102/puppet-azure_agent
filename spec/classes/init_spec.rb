@@ -10,9 +10,9 @@ describe 'azure_agent', :type => :class do
         'owner'   => 'root',
         'group'   => 'root',
         'mode'    => '0644',
-        'content' => /Provisioning.Enabled=n/,
-        'content' => /ResourceDisk.Filesystem=ext4/,
       })
+      should contain_file('/etc/waagent.conf').with_content(/^Provisioning.Enabled=n$/)
+      should contain_file('/etc/waagent.conf').with_content(/^ResourceDisk.Filesystem=ext4$/)
       should contain_service('walinuxagent').with({
         'ensure'     => 'running',
         'enable'     => 'true',
@@ -25,10 +25,8 @@ describe 'azure_agent', :type => :class do
     let (:facts) {{ :operatingsystem => 'SLES' }}
     it {
       should contain_package('WALinuxAgent')
-      should contain_file('/etc/waagent.conf').with({
-        'content' => /Provisioning.Enabled=y/,
-        'content' => /ResourceDisk.Filesystem=ext3/,
-      })
+      should contain_file('/etc/waagent.conf').with_content(/^Provisioning.Enabled=y$/)
+      should contain_file('/etc/waagent.conf').with_content(/^ResourceDisk.Filesystem=ext3$/)
       should contain_service('waagent')
     }
   end

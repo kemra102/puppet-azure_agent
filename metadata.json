@@ -1,5 +1,5 @@
 {
-  "name": "puppet-azure_agent",
+  "name": "kemra102-azure_agent",
   "version": "1.0.0",
   "author": "Danny Roberts",
   "summary": "Deploy and manage the Azure agent on Linux instances.",

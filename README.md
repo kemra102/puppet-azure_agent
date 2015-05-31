@@ -209,7 +209,7 @@ Default: `None`
 
 ## Limitations
 
-This module should work on:
+This module has been tested as working on:
 
 * Ubuntu 12.04.1+, 14.04 & 14.10.
 * CentOS 6.4+, 7.

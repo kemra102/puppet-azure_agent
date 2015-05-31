@@ -115,6 +115,15 @@ Defaults:
 * Ubuntu *operatingsystem*: `walinuxagent`
 * Other *operatingsystem*: `WALinuxAgent`
 
+#### `service_name`
+
+The name of the Windows Azure Linux Agent.
+
+Defaults:
+
+* Ubuntu *operatingsystem*: `walinuxagent`
+* Other *operatingsystem*: `waagent`
+
 #### `provisioning_enabled`
 
 This allows the user to enable or disable the provisioning functionality in the agent. Valid values are *y* or *n*. If provisioning is disabled, SSH host and user keys in the image are preserved and any configuration specified in the Azure provisioning API is ignored.

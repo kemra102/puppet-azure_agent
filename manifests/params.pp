@@ -1,12 +1,27 @@
 class azure_agent::params {
 
-  # Set the package name (Ubuntu is different)
+  # Set the package & service name (Ubuntu is different)
   case $::operatingsystem {
-    'Ubuntu':      { $package_name = 'walinuxagent' }
-    'Centos':      { $package_name = 'WALinuxAgent' }
-    'OracleLinux': { $package_name = 'WALinuxAgent' }
-    'SLES':        { $package_name = 'WALinuxAgent' }
-    'OpenSuSE':    { $package_name = 'WALinuxAgent' }
+    'Ubuntu':      {
+      $package_name = 'walinuxagent'
+      $service_name = 'walinuxagent'
+    }
+    'Centos':      {
+      $package_name = 'WALinuxAgent'
+      $service_name = 'waagent'
+    }
+    'OracleLinux': {
+      $package_name = 'WALinuxAgent'
+      $service_name = 'waagent'
+    }
+    'SLES':        {
+      $package_name = 'WALinuxAgent'
+      $service_name = 'waagent'
+    }
+    'OpenSuSE':    {
+      $package_name = 'WALinuxAgent'
+      $service_name = 'waagent'
+    }
     default:       {
       fail("${::operatingsystem} is not supported by ${::module_name}")
     }

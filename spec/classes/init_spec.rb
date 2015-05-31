@@ -13,7 +13,7 @@ describe 'azure_agent', :type => :class do
         'content' => /Provisioning.Enabled=n/,
         'content' => /ResourceDisk.Filesystem=ext4/,
       })
-      should contain_service('waagent').with({
+      should contain_service('walinuxagent').with({
         'ensure'     => 'running',
         'enable'     => 'true',
         'hasstatus'  => 'true',
@@ -29,6 +29,7 @@ describe 'azure_agent', :type => :class do
         'content' => /Provisioning.Enabled=y/,
         'content' => /ResourceDisk.Filesystem=ext3/,
       })
+      should contain_service('waagent')
     }
   end
 end

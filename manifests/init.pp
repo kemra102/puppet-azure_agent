@@ -100,6 +100,7 @@
 class azure_agent (
 
   $package_name                          = $::azure_agent::params::package_name,
+  $service_name                          = $::azure_agent::params::service_name,
 
   $provisioning_enabled                  = $::azure_agent::params::provisioning_enabled,
   $provisioning_deleterootpassword       = $::azure_agent::params::provisioning_deleterootpassword,
@@ -119,6 +120,7 @@ class azure_agent (
 ) inherits azure_agent::params {
 
   validate_string($package_name)
+  validate_string($service_name)
   validate_re($provisioning_enabled, '^(y|n)$',
     "${provisioning_enabled} is not supported for provisioning_enabled. Allowed values are 'y' & 'n'.")
   validate_re($provisioning_deleterootpassword, '^(y|n)$',
@@ -157,11 +159,12 @@ class azure_agent (
     notify  => Service['waagent'],
   }
 
-  service { 'waagent':
+  service { $service_name:
     ensure     => 'running',
     enable     => true,
     hasstatus  => true,
     hasrestart => true,
+    alias      => 'waagent',
   }
 
 }

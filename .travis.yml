@@ -13,6 +13,4 @@ matrix:
     env: PUPPET_GEM_VERSION="~> 4.0"
 branches:
   only:
-    - master
-notifications:
-  email: danny@thefallenphoenix.net
+    - maste
